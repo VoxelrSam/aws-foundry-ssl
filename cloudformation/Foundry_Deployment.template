@@ -137,11 +137,11 @@
 			"Type": "String",
 			"Description": "EC2 server instance type. Factor in your use and cost - if unsure, use `t4g.small` for light performance / good cost saving. `m6`-class instances are fast but very expensive and probably not recommended unless you know you need them. See https://aws.amazon.com/ec2/pricing/on-demand/ for info.",
 			"AllowedValues": [
-				"t3.small",
-				"t3.medium",
-				"t3.large",
-				"m6.large",
-				"m6.xlarge",
+				"t3a.small",
+				"t3a.medium",
+				"t3a.large",
+				"m6a.large",
+				"m6a.xlarge",
 				"t4g.small",
 				"t4g.medium",
 				"t4g.large",
@@ -155,10 +155,9 @@
 			"Description": "Managed AMI (operating system) image for the EC2. If you're using a `g` class instance, leave it as 'arm64'. `a` class instances MUST change this to `x86_64`.",
 			"AllowedValues": [
 				"/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-arm64",
-				"/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64",
-				"/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+				"/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64"
 			],
-			"Default": "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+			"Default": "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-arm64"
 		},
 		"UseFixedIP": {
 			"Type": "String",
@@ -762,7 +761,7 @@
 						},
 						"commands": {
 							"A_Install_Git": {
-								"command": "sudo yum install git -y"
+								"command": "sudo dnf install -y git"
 							},
 							"B_Clone_Repo": {
 								"command": "sudo git clone https://github.com/VoxelrSam/aws-foundry-ssl.git",

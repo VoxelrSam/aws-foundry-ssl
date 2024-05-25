@@ -11,7 +11,7 @@ else
 fi
 
 # Install nginx
-sudo amazon-linux-extras install -y nginx1
+sudo dnf install nginx -y
 
 # Configure nginx
 sudo mkdir /var/log/nginx/foundry

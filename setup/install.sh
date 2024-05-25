@@ -10,12 +10,10 @@ set -x
 
 # Install foundry
 echo "===== 1. INSTALLING DEPENDENCIES ====="
-
-curl -sL https://rpm.nodesource.com/setup_16.x | bash -
-yum install -y nodejs
-
-sudo yum install -y openssl-devel
-sudo yum install -y amazon-cloudwatch-agent
+curl -fsSL https://rpm.nodesource.com/setup_20.x | bash -
+dnf install -y nodejs
+sudo dnf install -y openssl-devel
+sudo dnf install -y amazon-cloudwatch-agent
 
 # Install foundry
 echo "===== 2. INSTALLING FOUNDRY ====="
